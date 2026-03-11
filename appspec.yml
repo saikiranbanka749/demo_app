@@ -1,11 +1,15 @@
 version: 0.0
 os: linux
-
 files:
   - source: /
     destination: /home/ubuntu/python-app
-    overwrite: true
-
+permissions:
+  - object: /home/ubuntu/python-app
+    owner: ubuntu
+    group: ubuntu
+    type:
+      - directory
+      - file
 hooks:
   ApplicationStart:
     - location: scripts/start_server.sh
